@@ -1,0 +1,3888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable { width: 1px; height: 1px; background: white; padding: 0.5em; }
+  	#myAnimation {
+  		width: 15px;
+  		height: 15px;
+  		border-radius: 50%;
+  		position: absolute;
+  		background-color: black;
+  		display: none;
+	}
+	#text , #moving_text {
+  		position: absolute;
+  		display: none;
+	}
+	#green_circle{
+  		width: 15px;
+  		height: 15px;
+  		border-radius: 50%;
+  		position: absolute;
+  		background-color: green;
+  		display: none;		
+	}
+	#run, #run2, #run3, #run4, #run5, #run6, #run7{
+		display:none;
+	}
+	#start{
+		height:200px;
+		width:600px;
+		position:absolute;
+		top:186px;
+		left:7px;
+		text-align: center; 
+	}
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#draggable" ).draggable();
+  } );
+  </script>
+</head>
+<body>
+
+	<div id="draggable" class="ui-widget-content">
+  		<p></p>
+	</div>
+	<button onclick="auto()">AUTO</button>
+	<button onclick="manual()">MANUAL</button>
+	<button id="run" onclick="line1()">MRT-1</button>
+	<button id="run2" onclick="line2()">MRT-2</button>
+	<button id="run3" onclick="line3()">BRT-3</button>
+	<button id="run4" onclick="line4()">MRT-4</button>
+	<button id="run5" onclick="line5()">MRT-5</button>
+	<button id="run6" onclick="line6()">MRT-6</button>
+	<button id="run7" onclick="line7()">BRT-7</button>
+	<button id="stop" onclick="stop()">STOP</button>
+
+	<div>
+		<img src="DTCA-fixed.png" height="648px" width="598px">
+		<div id ="myAnimation"></div>
+		<div id="green_circle"></div>
+		<h2 id="text"></h2>
+		<div id="start">
+			<font size="+19" id="start_text"></font>
+		</div>
+		<h2 id="moving_text"></h2>
+	</div>
+
+<script>
+
+function stop(){
+	clearInterval(id);
+	document.getElementById("myAnimation").style.display='none';
+	document.getElementById("green_circle").style.display='none';
+	document.getElementById("text").style.display='none';
+	document.getElementById("start_text").style.display='none';
+	document.getElementById("moving_text").style.display='none';
+}	
+
+function auto(){
+	l2=true,l3=false,l4=false;
+	var i;
+	
+	/*line2(function() {
+          line3();
+        });*/
+
+	line1(function(){
+		line2(function(){
+			line3(function(){
+				line4(function(){
+					line5(function(){
+						line6(function(){
+							line7();
+						});
+					});
+				});
+			});
+		});
+	});
+	//line4();
+	//line5();
+	//line6();
+	//line7();
+}
+
+
+function manual(){
+	document.getElementById("run").style.display='inline-block';
+	document.getElementById("run2").style.display='inline-block';
+	document.getElementById("run3").style.display='inline-block';
+	document.getElementById("run4").style.display='inline-block';
+	document.getElementById("run5").style.display='inline-block';
+	document.getElementById("run6").style.display='inline-block';
+	document.getElementById("run7").style.display='inline-block';
+}
+
+
+
+
+
+
+function line7(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="orange";
+  document.getElementById("green_circle").style.top= 658 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="orange";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="BRT-7";
+
+  var elem2 = document.getElementById("moving_text"); 
+  var elem = document.getElementById("myAnimation");   
+  var top = 583;
+  var left = 421;
+  var prev_a=true;a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,v=false,x=false;
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+   id = setInterval(frame, 30);
+  function frame() {
+    
+  	if(top>=508 && prev_a==false){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Narayanganj";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}
+  	else if(top<=501 && top>474){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Signboard";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';  		
+  	}
+  	else if(top>=372 && top<468){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Demra";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';  		
+  	}
+  	else if(top>=373 && top<428){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Khilgaon";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';  		
+  	} 
+  	else if(top>=336 && top<368){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Kathaldia";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';  		
+  	}
+  	else if(top>=281 && top<331){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Mastul";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';  		
+  	}
+  	else if(top>=221 && top<272){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Uttarkhan";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';  		
+  	}  
+  	else if(top>=212 && top<219){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="MirerBazar";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+
+  	}
+  	else if(top<212){
+  		document.getElementById("moving_text").style.display='none';
+  	}   	 	   	   	 	  	
+  	else
+  	{
+  		document.getElementById("moving_text").style.display='none';
+  	}
+
+    if(prev_a){
+	    document.getElementById("myAnimation").style.display='none';
+	    if (top <= 573) {
+	      	//clearInterval(id);
+	     	prev_a=false;
+	      	a=true;
+	      	top=583;
+	      	left=421;
+	    	} 
+	    else {
+	      	top=top-0.5;
+	      	if(left>=417)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}    
+    if(a){
+	    document.getElementById("myAnimation").style.display='block';
+	    document.getElementById("start_text").style.display='none';
+	    if (top <= 573) {
+	      	//clearInterval(id);
+	     	a=false;
+	      	b=true;
+	    	} 
+	    else {
+	      	top=top-2;
+	      	if(left>=417)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(b){
+	    if (top <= 560) {
+	      	//clearInterval(id);
+	     	b=false;
+	      	c=true;
+	    	} 
+	    else {
+	      	top=top-2;
+	      	if(left>=411)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(c){
+	    if (top <= 547) {
+	      	//clearInterval(id);
+	     	c=false;
+	      	d=true;
+	    	} 
+	    else {
+	      	top=top-2;
+	      	if(left>=406)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+	else if(d){
+	    if (top <= 536) {
+	      	//clearInterval(id);
+	     	d=false;
+	      	e=true;
+	    	} 
+	    else {
+	      	top=top-3;
+	      	if(left>=402)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(e){
+	    if (top <= 530) {
+	      	//clearInterval(id);
+	     	e=false;
+	      	f=true;
+	    	} 
+	    else {
+	      	top=top-3;
+	      	if(left>=400)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+	else if(f){
+	    if (top <= 524) {
+	      	//clearInterval(id);
+	     	f=false;
+	      	g=true;
+	    	} 
+	    else {
+	      	top=top-3;
+	      	if(left>=398)left--; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(g){
+	    if (top <= 498) {
+	      	//clearInterval(id);
+	     	g=false;
+	      	h=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(7/26);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(h){
+	    if (top <= 415) {
+	      	//clearInterval(id);
+	     	h=false;
+	      	i=true;
+	      	left=left-2;
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px';
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(41/83);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(i){
+	    if (top <= 351) {
+	      	//clearInterval(id);
+	     	i=false;
+	      	j=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(1/64);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(j){
+	    if (top <= 290) {
+	      	//clearInterval(id);
+	     	j=false;
+	      	k=true;
+	      	left--;
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px';	      	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(5/60);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(k){
+	    if (top <= 284) {
+	      	//clearInterval(id);
+	     	k=false;
+	      	l=true;      	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(2/6);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(l){
+	    if (top <= 211) {
+	      	clearInterval(id);
+	     	l=false;
+	      	document.getElementById("green_circle").style.display='none';
+	     	var blink = setInterval(blnk, 1500);
+  			document.getElementById("moving_text").style.display='block';
+			document.getElementById("moving_text").innerHTML="Kapasia";
+			elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+  		//}	      	
+	      	function blnk() {
+	      	clearInterval(blink);
+	    	}	      	 
+	      	callback();    	
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(10/73);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}						
+  }
+}
+
+function line1(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="red";
+  document.getElementById("green_circle").style.top= 588 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="red";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="MRT-1"; 	
+  var elem = document.getElementById("myAnimation");
+  var elem2 = document.getElementById("text");   
+  var top = 518;
+  var left = 280;
+  var counter=0;
+  var prev_a=true,a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,w=false,x=false;
+  var aa=false,bb=false,cc=false,dd=false,ee=false,ff=false,gg=false,hh=false,ii=false,jj=false,kk=false,ll=false;
+  var mm=false,nn=false,oo=false,pp=false,qq=false,rr=false,ss=false,tt=false,uu=false,vv=false,ww=false,xx=false;
+  var extra=false,extra2=false;  
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+  //document.getElementById("myAnimation").style.display='block';
+  id = setInterval(frame, 30);
+  function frame() {
+    if(prev_a){
+	    document.getElementById("myAnimation").style.display='none';
+	    if (left==305) {
+	      	//clearInterval(id);
+	     	prev_a=false;
+	      	a=true;
+	      	top=518;
+	      	left=280;
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(10/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+    }
+    if(a){
+	    document.getElementById("start_text").style.display='none';
+	    document.getElementById("myAnimation").style.display='block';
+	    if (left==305) {
+	      	//clearInterval(id);
+	     	a=false;
+	      	b=true;
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(10/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(b){
+	    if (left==323) {
+	      	//clearInterval(id);
+	     	b=false;
+	      	c=true;
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(13/15); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(c){
+	    if (left==306) {
+	      	//clearInterval(id);
+	     	c=false;
+	      	d=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(20/17); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(d){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    if (top<=451) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Kamlapur(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	d=false;
+	      	e=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(4/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(e){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=441) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Rajarbagh(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	e=false;
+	      	extra=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(7/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(extra){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=431) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	extra=false;
+	      	f=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(15/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+    else if(f){
+	    document.getElementById("text").style.display='none';
+	    if (top<=423) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Moghbazar(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	counter=0;
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	f=false;
+	      	g=true;
+	      	clearInterval(blink);	      
+	      }
+	      	//clearInterval(id);
+	      	//clearInterval(blink);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(7/8); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(g){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=413) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Rampura(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	g=false;
+	      	h=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(6/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(h){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=402) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Hatirjheel(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	h=false;
+	      	i=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(8/11); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+    else if(i){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=391) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Badda(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	i=false;
+	      	j=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/11); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+    else if(j){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=381) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Uttor Badda(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	j=false;
+	      	k=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(1/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(k){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=369) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Notun Bazar(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	k=false;
+	      	l=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(l){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=352) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Future Park(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	l=false;
+	      	m=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/17); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(m){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=337) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	m=false;
+	      	n=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/15); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(n){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=325) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Khilkhet(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;		    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	n=false;
+	      	o=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(o){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=314) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Airport Terminal 3(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;		    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	o=false;
+	      	p=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(8/11); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(p){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=300) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Airport(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	p=false;
+	      	q=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(13/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(q){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=267) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	q=false;
+	      	r=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/33); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(r){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=128) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	r=false;
+	      	aa=true;
+	      	top=518;
+	      	left=280;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(21/139); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    if(aa){
+	    if (left==305) {
+	      	//clearInterval(id);
+	     	aa=false;
+	      	bb=true;
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(10/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(bb){
+	    if (left==323) {
+	      	//clearInterval(id);
+	     	bb=false;
+	      	cc=true;
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(13/15); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(cc){
+	    if (left==306) {
+	      	//clearInterval(id);
+	     	cc=false;
+	      	dd=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(20/17); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(dd){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=451) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Kamlapur(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {	      		
+	      	counter++;
+	      	dd=false;
+	      	ee=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(4/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ee){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=441) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Rajarbagh(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ee=false;
+	      	extra2=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(7/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(extra2){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=431) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	extra2=false;
+	      	ff=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(15/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+    else if(ff){
+	    document.getElementById("text").style.display='none';
+	    if (top<=423) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Moghbazar(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	counter=0;
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ff=false;
+	      	gg=true;
+	      	clearInterval(blink);	      
+	      }
+	      	//clearInterval(id);
+	      	//clearInterval(blink);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(7/8); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(gg){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=413) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Rampura(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	gg=false;
+	      	hh=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(6/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(hh){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=402) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Hatirjheel(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	hh=false;
+	      	ii=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(8/11); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+    else if(ii){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=391) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Badda(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ii=false;
+	      	jj=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/11); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+    else if(jj){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=381) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttor Badda(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	jj=false;
+	      	kk=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(1/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(kk){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=369) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Notun Bazar(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	kk=false;
+	      	ll=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ll){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=352) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Future Park(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ll=false;
+	      	mm=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/17); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(mm){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (top<=337) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	mm=false;
+	      	nn=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/15); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}			
+    else if(nn){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    if (left>=323) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="POHS(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	nn=false;
+	      	oo=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(3/20); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(oo){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=345) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Mastul(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	oo=false;
+	      	pp=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(4/22); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(pp){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=369) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="West(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	pp=false;
+	      	qq=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(5/24); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(qq){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=392) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Central(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	qq=false;
+	      	rr=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(3/23); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+    else if(rr){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=414) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Sector 7(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	rr=false;
+	      	ss=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ss){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=442) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Purbachal Terminal(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ss=false;
+	      	tt=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(tt){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=472) {
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	tt=false;
+	      	uu=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(3/30); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+    else if(uu){
+	    document.getElementById("myAnimation").style.backgroundColor="red";
+	    document.getElementById("text").style.display='none';
+	    if (left>=478) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	uu=false;
+	      	vv=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	clearInterval(id);
+	      	document.getElementById("green_circle").style.display='none' ;
+	      	callback();
+	    } 
+	    else {
+	      	left++;
+	      	top=top; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+  }
+}
+
+
+
+function line2(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="blue";
+  document.getElementById("green_circle").style.top= 629 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="blue";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="MRT-2"; 
+  var elem = document.getElementById("myAnimation");
+  var elem2 = document.getElementById("moving_text");   
+  var top = 461;
+  var left = 310;
+  var prev_a=true,a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,v=false,x=false;
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+  id = setInterval(frame, 30);
+  function frame() {
+  	if(left>=260 && left<309 && prev_a==false){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Kamlapur";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}
+  	else if((left<=239 && top<=444) && (left>=214 && top>=421)){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Dakshin Bashila";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}
+  	else if(top<=419 && top>391){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Uttar Bashila";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}
+  	else if(top<=289 && top>234){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Savar";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	} 
+  	else if(top<=230 && top>199){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Nabinagar";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}   	 	  	  	
+  	else
+  	{
+  		document.getElementById("moving_text").style.display='none';
+  	}    
+    if(prev_a){
+	    document.getElementById("myAnimation").style.display='none';
+	    if (left<=263) {
+	      	//clearInterval(id);
+	     	prev_a=false;
+	      	a=true;
+	      	top=461;
+	      	left=310;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(3/47); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}    
+    if(a){
+	    document.getElementById("myAnimation").style.display='block';
+	    document.getElementById("start_text").style.display='none';
+	    if (left<=263) {
+	      	//clearInterval(id);
+	     	a=false;
+	      	b=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(3/47); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(b){
+	    if (top <= 439) {
+	      	//clearInterval(id);
+	     	b=false;
+	      	c=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(14/19); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(c){
+	    if (left <= 239) {
+	      	//clearInterval(id);
+	     	c=false;
+	      	d=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top+(3/11); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	
+	else if(d){
+	    if (top <= 416) {
+	      	//clearInterval(id);
+	     	d=false;
+	      	e=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(27/26);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(e){
+	    if (top <= 388) {
+	      	//clearInterval(id);
+	     	e=false;
+	      	f=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(15/28); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(f){
+	    if (left <= 157) {
+	      	//clearInterval(id);
+	     	f=false;
+	      	g=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(9/39); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(g){
+	    if (left <= 107) {
+	      	//clearInterval(id);
+	     	g=false;
+	      	h=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(6/50);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(h){
+	    if (left <= 84) {
+	      	//clearInterval(id);
+	     	h=false;
+	      	i=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top+(4/23);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(i){
+	    if (top <= 350) {
+	      	//clearInterval(id);
+	     	i=false;
+	      	j=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(21/27);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(j){
+	    if (top <= 325) {
+	      	//clearInterval(id);
+	     	j=false;
+	      	k=true;	      	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(6/25);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(k){
+	    if (top <= 315) {
+	      	//clearInterval(id);
+	     	k=false;
+	      	l=true;      	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(6/10);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(l){
+	    if (top <= 286) {
+	      	//clearInterval(id);
+	     	l=false;
+	     	m=true;    	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(23/29);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(m){
+	    if (top <= 244) {
+	      	//clearInterval(id);
+	     	m=false;
+	     	n=true;    	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(3/42);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(n){
+	    if (top <= 230) {
+	      	//clearInterval(id);
+	     	n=false;
+	     	o=true;    	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(18/14);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(o){
+	    if (top <= 200) {
+	      	clearInterval(id);
+	     	o=false;
+	     	p=true; 
+	     	document.getElementById("green_circle").style.display='none';
+	     	l2=false;
+	     	l3=true; 
+	     	document.getElementById("moving_text").style.display='none';
+	     	var blink = setInterval(blnk, 1500);
+  			document.getElementById("moving_text").style.display='block';
+			document.getElementById("moving_text").innerHTML="EPZ";
+			elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+  		//}	      	
+	      	function blnk() {
+	      	clearInterval(blink);
+	    	}	     	
+	     	callback();  	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(19/30);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+
+	    }
+	}		
+
+
+  }
+}	
+
+
+
+function line3(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="yellow";
+  document.getElementById("green_circle").style.top= 616 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="yellow";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="BRT-3";   
+  var elem = document.getElementById("myAnimation"); 
+  var elem2 = document.getElementById("moving_text");  
+  var top = 518;
+  var left = 279;
+  var prev_a=true,a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,v=false,x=false;
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+  id = setInterval(frame, 30);
+  function frame() {
+    
+    if(top>=490 && top<519 && prev_a==false){
+   		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Jhilmil";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';   	
+    }
+  	else if(top>=450 && top<480){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Zinjira Aganagar";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+	    //var elem2 = document.getElementById("moving_text");
+  	}
+  	else if(top>=380 && top<400){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Tejgaon Airport";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}  	
+  	else if(top>=354 && top<377){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Banani";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}
+  	else if(top>=306  && top<336){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Kuril";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	} 
+  	else if(top>=274  && top<302){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Airport";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	} 
+  	else if(top>=220  && top<269){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Ranabhola";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}   
+  	else if(top>=141  && top<188){
+  		document.getElementById("moving_text").style.display='block';
+		document.getElementById("moving_text").innerHTML="Bangladesh Open University";
+		elem2.style.top = top+ 'px'; 
+	    elem2.style.left = left + 'px';
+  	}   		   	 	    	
+  	else
+  	{
+  		document.getElementById("moving_text").style.display='none';
+  	}
+    if(prev_a){
+	    if (top<=484) {
+	      	//clearInterval(id);
+	     	prev_a=false;
+	      	a=true;
+	      	top=518;
+	      	left=279;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(11/34); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    if(a){
+	    document.getElementById("myAnimation").style.display='block';
+	    document.getElementById("start_text").style.display='none';
+	    if (top<=484) {
+	      	//clearInterval(id);
+	     	a=false;
+	      	b=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(11/34); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(b){
+	    if (top <= 463) {
+	      	//clearInterval(id);
+	     	b=false;
+	      	c=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left++; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(c){
+	    if (top<=451) {
+	      	//clearInterval(id);
+	     	c=false;
+	      	d=true;
+	    	} 
+	    else {
+	      	top--
+	      	left=left-(1/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	
+	else if(d){
+	    if (left<=277) {
+	      	//clearInterval(id);
+	     	d=false;
+	      	e=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top-(1/11);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(e){
+	    if (top <= 437) {
+	      	//clearInterval(id);
+	     	e=false;
+	      	f=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(4/13); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(f){
+	    if (top<=420) {
+	      	//clearInterval(id);
+	     	f=false;
+	      	g=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(11/17); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(g){
+	    if (top<=400) {
+	      	//clearInterval(id);
+	     	g=false;
+	      	h=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(5/20);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(h){
+	    if (top<=394) {
+	      	//clearInterval(id);
+	     	h=false;
+	      	i=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(5/6);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(i){
+	    if (top <= 347) {
+	      	//clearInterval(id);
+	     	i=false;
+	      	j=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(8/47);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(j){
+	    if (left >= 301) {
+	      	//clearInterval(id);
+	     	j=false;
+	      	k=true;	      	
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(6/23);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(k){
+	    if (top <= 325) {
+	      	//clearInterval(id);
+	     	k=false;
+	      	l=true;      	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(1/16);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(l){
+	    if (top <= 294) {
+	      	//clearInterval(id);
+	     	l=false;
+	     	m=true;    	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(28/31);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(m){
+	    if (top <= 241) {
+	      	//clearInterval(id);
+	     	m=false;
+	     	n=true;    	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(1/53);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(n){
+	    if (top <= 188) {
+	      	//clearInterval(id);
+	     	n=false;
+	     	o=true;    	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(27/53);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(o){
+	    if (top <= 138) {
+	      	//clearInterval(id);
+	     	o=false;
+	     	p=true;   	
+	    	} 
+	    else {
+	      	top--;
+	      	left=left+(1/50);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	else if(p){
+	    if (left>=300) {
+	      	clearInterval(id);
+	     	p=false;
+	     	q=true;
+	     	document.getElementById("green_circle").style.display='none';
+	     	l3=false;
+	     	l4=true; 
+	     	var blink = setInterval(blnk, 1500);
+  			document.getElementById("moving_text").style.display='block';
+			document.getElementById("moving_text").innerHTML="Joydevpur";
+			elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+  		//}	      	
+	      	function blnk() {
+	      	clearInterval(blink);
+	    	}	     	
+	     	callback();  	
+	    	} 
+	    else {
+	      	left++;
+	      	top=top-(9/55);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	
+
+  }
+}
+
+
+
+
+function line4(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="green";
+  document.getElementById("green_circle").style.top= 643 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="green";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="MRT-4";
+  var elem = document.getElementById("myAnimation");
+  var elem2 = document.getElementById("moving_text");   
+  var top = 580;
+  var left = 415;
+  var prev_a=true,a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,v=false,x=false;
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+  id = setInterval(frame, 30);
+  function frame() {
+    if(prev_a){
+	    if (top<=496) {
+	      	//clearInterval(id);
+	     	prev_a=false;
+	      	a=true;
+	      	top=580;
+	      	left=415;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(93/84); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    if(a){
+        document.getElementById("start_text").style.display='none';	
+    	document.getElementById("myAnimation").style.display='block';
+	    if (top<=496) {
+	      	//clearInterval(id);
+	     	a=false;
+	      	b=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(93/84); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	      	if(top<=530)document.getElementById("moving_text").style.display='none'; 
+	      	else
+	      	{
+	      		document.getElementById("moving_text").style.display='block';
+	      	}
+			document.getElementById("moving_text").innerHTML="Narayanganj";
+			elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';	     	
+	    }
+	}
+
+    else if(b){
+	    document.getElementById("moving_text").style.display='none';
+	    if (top<=471) {
+	      	//clearInterval(id);
+	     	b=false;
+	      	c=true;
+	    	} 
+	    else {
+	      	top--;
+	      	left=left-(14/24); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(c){
+	    if (top<=452) {
+	      	//clearInterval(id);
+	     	c=false;
+	     	var blink = setInterval(blnk, 1500);
+  			document.getElementById("moving_text").style.display='block';
+			document.getElementById("moving_text").innerHTML="Kamlapur";
+			elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+  		//}	      	
+	      	function blnk() {
+	      	clearInterval(blink);
+	    	}
+	      	document.getElementById("green_circle").style.display='none';
+	      	callback();
+
+	    	} 
+	    else {
+	      	top--;
+	      	left=left; 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+
+
+}
+}	
+
+
+
+
+
+function line5(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="brown";
+  document.getElementById("green_circle").style.top= 602 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="brown";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="MRT-5";  
+  var elem = document.getElementById("myAnimation");
+  var elem2 = document.getElementById("text");   
+  var top = 375;
+  var left = 91;
+  var counter=0;
+  var prev_a=true,a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,w=false,x=false;
+  var aa=false,bb=false,cc=false,dd=false,ee=false,ff=false,gg=false,hh=false,ii=false,jj=false,kk=false,ll=false;
+  var mm=false,nn=false,oo=false,pp=false,qq=false,rr=false,ss=false,tt=false,uu=false,vv=false,ww=false,xx=false;
+  var extra=false,extra2=false;  
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+  //document.getElementById("myAnimation").style.display='block';
+  id = setInterval(frame, 30);
+  function frame() {
+    
+    if(prev_a){
+	    document.getElementById("myAnimation").style.display='none';
+	    if (left>=116) {	    	
+	      	var blink = setInterval(blnk, 500);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	prev_a=false;
+	      	a=true;
+	      	clearInterval(blink);
+	    	}
+	    	top=375;
+	    	left=91;
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(1/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}   
+    if(a){
+	    document.getElementById("myAnimation").style.display='block';
+	    document.getElementById("start_text").style.display='none';
+	    if (left>=116) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Baliapur(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	a=false;
+	      	b=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(1/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(b){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=137) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Madhumoti(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	      	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	b=false;
+	      	c=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(4/21); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(c){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=157) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Amin Bazar(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	c=false;
+	      	d=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(2/20); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(d){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=190) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Gabtoli(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	d=false;
+	      	e=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(7/23);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(e){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=203) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	e=false;
+	      	extra=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(1/13); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(extra){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (top<=378) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Dar-Us-Salam(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	extra=false;
+	      	f=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(2/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(f){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (top<=364) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-1(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	counter=0;
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	f=false;
+	      	g=true;
+	      	clearInterval(blink);	      
+	      }
+	      	//clearInterval(id);
+	      	//clearInterval(blink);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(4/14);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(g){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=226) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-10(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	g=false;
+	      	h=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(8/17);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(h){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=240) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-14(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	h=false;
+	      	i=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(6/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	
+    else if(i){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=252) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Kochukhet(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	i=false;
+	      	j=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(7/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(j){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=276) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Banani(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	j=false;
+	      	k=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(5/24); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(k){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=293) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Gulshan 2(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	k=false;
+	      	l=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(2/17);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(l){
+	   document.getElementById("text").style.display='none';
+	   document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=308) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Natun Bazar(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	l=false;
+	      	m=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(3/15); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(m){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=330) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Vatara(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	m=false;
+	      	n=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(1/22);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(n){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=395) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	n=false;
+	      	o=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(8/65); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(o){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=475) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	o=false;
+	      	p=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(23/80);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(p){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=517) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	p=false;
+	      	aa=true;
+	      	left=91;
+	      	top=375;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(1/42); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+
+    if(aa){
+	    document.getElementById("text").style.display='none';
+	    if (left>=116) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Baliapur(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	aa=false;
+	      	bb=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(1/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(bb){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=137) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Madhumoti(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	bb=false;
+	      	cc=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(4/21); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(cc){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=157) {
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Amin Bazar(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	cc=false;
+	      	dd=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(2/20); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(dd){
+	   	    document.getElementById("text").style.display='block';
+	   	    var station="Gabtoli(Underground Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;    	
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=190) {
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	dd=false;
+	      	ee=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(7/23);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ee){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=203) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	ee=false;
+	      	extra2=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(1/13); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(extra2){
+	    document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=225) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	extra2=false;
+	      	ff=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(19/22); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ff){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (top>=425) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	ff=false;
+	      	gg=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top++;
+	      	left=left+(16/26);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(gg){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=263) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	gg=false;
+	      	hh=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(4/22);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(hh){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=296) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	hh=false;
+	      	ii=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(25/33);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ii){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=323) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	ii=false;
+	      	jj=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(4/27);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(jj){
+	    document.getElementById("myAnimation").style.backgroundColor="brown";
+	    if (left>=355) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	jj=false;
+	      	kk=true;
+	      	document.getElementById("green_circle").style.display='none';
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	clearInterval(id);
+	      	callback();
+	    } 
+	    else {
+	      	left++;
+	      	top=top+(1/32);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+
+
+
+   }
+}   	
+
+
+
+
+
+
+function line6(callback) {
+  document.getElementById("green_circle").style.display='block';
+  document.getElementById("green_circle").style.backgroundColor="purple";
+  document.getElementById("green_circle").style.top= 671 + 'px';
+  document.getElementById("green_circle").style.left= 14 + 'px';
+  document.getElementById("myAnimation").style.backgroundColor="purple";
+  document.getElementById("start_text").style.display='block';
+  document.getElementById("start_text").innerHTML="MRT-6";
+  var elem = document.getElementById("myAnimation");
+  var elem2 = document.getElementById("text"); 
+  var elem3 = document.getElementById("moving_text");    
+  var top = 456;
+  var left = 304;
+  var counter=0;
+  var prev_a=true,a=false,b=false,c=false,c=false,e=false,f=false,g=false,h=false,i=false,j=false,k=false,l=false;
+  var m=false,n=false,o=false,p=false,q=false,r=false,s=false,t=false,u=false,v=false,w=false,x=false;
+  var aa=false,bb=false,cc=false,dd=false,ee=false,ff=false,gg=false,hh=false,ii=false,jj=false,kk=false,ll=false;
+  var mm=false,nn=false,oo=false,pp=false,qq=false,rr=false,ss=false,tt=false,uu=false,vv=false,ww=false,xx=false;
+  var extra=false,extra2=false;  
+  elem.style.top = top + 'px'; 
+  elem.style.left = left + 'px';
+  //document.getElementById("myAnimation").style.display='block';
+  id = setInterval(frame, 30);
+  function frame() {
+    
+    if(prev_a){
+	    if (left<=281) {
+	      	var blink = setInterval(blnk, 500);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	prev_a=false;
+	      	a=true;
+	      	clearInterval(blink);
+	    	}
+	    	top=456;
+	    	left=290;
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(5/23); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}    
+    if(a){
+	    document.getElementById("myAnimation").style.display='block';
+	   	document.getElementById("start_text").style.display='none';
+	   	document.getElementById("text").style.display='block';    	
+	    if (left<=281) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Dhaka University(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	a=false;
+	      	b=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(5/23); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(b){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (left<=272) {
+	      	//clearInterval(id);
+	     	b=false;
+	      	c=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top+(3/9); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(c){
+    	document.getElementById("text").style.display='none';
+	    if (left<=266) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Dhaka University(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	c=false;
+	      	d=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(5/6); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(d){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=439) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Shahbag(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	d=false;
+	      	e=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(e){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=427) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Kawran Bazar(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	e=false;
+	      	extra=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(extra){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=417) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Farmgate(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	extra=false;
+	      	f=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(f){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (left<=248) {
+	      	//counter=0;
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	f=false;
+	      	g=true;
+	      	//clearInterval(blink);	      
+	      //}
+	      	//clearInterval(id);
+	      	//clearInterval(blink);
+	    } 
+	    else {
+	      	left--;
+	      	top=top+(1/11);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(g){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=408) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Bijoy Sarani(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	g=false;
+	      	h=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(h){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=394) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Agargaon(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	h=false;
+	      	i=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(5/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	
+    else if(i){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=380) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Shewrapara(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	i=false;
+	      	j=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(6/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(j){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=372) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Kazipara(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	j=false;
+	      	k=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/8); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(k){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=358) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-10(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	k=false;
+	      	l=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(7/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(l){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=350) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-11(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	l=false;
+	      	m=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/8); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(m){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=340) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Pallabi(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	m=false;
+	      	n=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(n){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=312) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttara South(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	n=false;
+	      	o=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(2/28); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(o){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=296) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttara Central(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	o=false;
+	      	p=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(3/16); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(p){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=280) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttara North(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	p=false;
+	      	q=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(4/16); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(q){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (top<=255) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	q=false;
+	      	r=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(2/25); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(r){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    document.getElementById("text").style.display='none';
+	    if (left<=172) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	r=false;
+	      	s=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(6/52); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(s){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=205) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	s=false;
+	      	t=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(35/44); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(t){
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (left<=85) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+  			/*document.getElementById("moving_text").style.display='block';
+			document.getElementById("moving_text").innerHTML="EPZ";
+			elem3.style.top = top+ 'px'; 
+	    	elem3.style.left = left + 'px';
+  			var blink = setInterval(blnk, 2000);      	
+	      	function blnk() {
+	      	clearInterval(blink);
+	    	}
+	      	document.getElementById("green_circle").style.display='none';*/
+	      	t=false;
+	      	aa=true;
+	      	left=304;
+	      	top=456;	      		      	
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(4/52); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}	
+
+
+    else if(aa){
+    	document.getElementById("text").style.display='none';
+	    if (left<=281) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Dhaka University(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {	      		
+	      	counter++;
+	      	aa=false;
+	      	bb=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(5/23); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(bb){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (left<=272) {
+	      	//clearInterval(id);
+	     	bb=false;
+	      	cc=true;
+	    	} 
+	    else {
+	      	left--;
+	      	top=top+(3/9); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(cc){
+    	document.getElementById("text").style.display='none';
+	    if (left<=266) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="TSC(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	cc=false;
+	      	dd=true;
+	      	clearInterval(blink);
+	    	}
+	    } 
+	    else {
+	      	left--;
+	      	top=top-(5/6); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(dd){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=439) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Shahbag(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	dd=false;
+	      	ee=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ee){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=427) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Kawran Bazar(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ee=false;
+	      	extra2=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/12); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(extra2){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=417) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Farmgate(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	extra2=false;
+	      	ff=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ff){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (left<=248) {
+	      	//counter=0;
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	ff=false;
+	      	gg=true;
+	      	//clearInterval(blink);	      
+	      //}
+	      	//clearInterval(id);
+	      	//clearInterval(blink);
+	    } 
+	    else {
+	      	left--;
+	      	top=top+(1/11);
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(gg){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=408) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Bijoy Sarani(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	gg=false;
+	      	hh=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(1/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(hh){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=394) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Agargaon(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	hh=false;
+	      	ii=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(5/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+	
+    else if(ii){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=380) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Shewrapara(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ii=false;
+	      	jj=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(6/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(jj){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=372) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Kazipara(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	jj=false;
+	      	kk=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(4/8); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(kk){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=358) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-10(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	kk=false;
+	      	ll=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(7/14); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(ll){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=350) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Mirpur-11(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	ll=false;
+	      	mm=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/8); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(mm){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=340) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Pallabi(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	mm=false;
+	      	nn=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(3/10); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(nn){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=312) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttara South(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	nn=false;
+	      	oo=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left-(2/28); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(oo){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=296) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttara Central(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	oo=false;
+	      	pp=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(3/16); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(pp){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=280) {
+	      	document.getElementById("text").style.display='block';
+	   	    var station="Uttara North(Elevated Station)";
+	    	elem2.style.top = top+ 'px'; 
+	    	elem2.style.left = left + 'px';
+	    	document.getElementById("text").innerHTML=station;	    	
+	      	var blink = setInterval(blnk, 1000);
+	      	document.getElementById("myAnimation").style.backgroundColor="white";
+	      	function blnk() {
+	      	counter++;
+	      	pp=false;
+	      	qq=true;
+	      	clearInterval(blink);	      
+	      }	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(4/16); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(qq){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (top<=262) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	qq=false;
+	      	rr=true;
+	      	//clearInterval(blink);	      
+	      //}	      	
+	      	//clearInterval(id);
+	    } 
+	    else {
+	      	top--;
+	      	left=left+(4/18); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+    else if(rr){
+    	document.getElementById("text").style.display='none';
+	    document.getElementById("myAnimation").style.backgroundColor="purple";
+	    if (left>=271) {
+	      	//var blink = setInterval(blnk, 1000);
+	      	//document.getElementById("myAnimation").style.backgroundColor="white";
+	      	//function blnk() {
+	      	//counter++;
+	      	rr=false;
+	      	document.getElementById("green_circle").style.display='none';
+	      	//clearInterval(blink);	      
+	      //}	      	
+
+
+	      	clearInterval(id);
+	      	callback();
+	    } 
+	    else {
+	      	left++;
+	      	top=top-(9/42); 
+	      	elem.style.top = top + 'px'; 
+	      	elem.style.left = left + 'px'; 
+	    }
+	}
+
+
+
+  }
+}
+
+
+
+</script>
+
+</body>
+</html>
